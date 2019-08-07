@@ -1,0 +1,28 @@
+{
+  "name": "how-npm3-works",
+  "version": "1.0.0",
+  "description": "Test project to show how npm3 works",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc",
+    "test": "node dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  },
+  "keywords": [
+    "npm3"
+  ],
+  "author": "twopelu <twopelu@hotmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twopelu/how-npm3-works.git"
+  },
+  "homepage": "https://github.com/twopelu/how-npm3-works#readme"
+}
