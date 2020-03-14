@@ -14,6 +14,63 @@ This project has been modified to test preleases in Npm, so that something like 
 
 [Semver Calculator](https://semver.npmjs.com/)
 
+## Workarround for snapshots in Npm
+
+### Publish and use snapshot versions
+
+Libraries:
+
+0. (**only in first project setup**) Set version in `package.json` to:
+    ```
+    "version": "0.0.0-snapshot.0"
+    ```
+1. Use these command to publish snapshots and tag as *snapshot*:
+    ```
+    "scripts": {
+        "publish:snapshot": "npm run version:snapshot && npm publish --tag snapshot",
+        "version:snapshot": "npm version prerelease --preid snapshot"
+    }
+    ```
+2. Check that snapshot number is incremented in `package.json`
+
+Application:
+
+0. (**only in first project setup**) Delete `package-lock.json` and `npm install` 
+1. Set dependency to snapshot version in development:
+    ```
+    "dependencies": {
+        "npm-test-lib-a": ">=0.0.0-snapshot.0"
+    }
+    ```
+2. To get the latest snapshot version use this command:
+    ```
+    npm update <package> --no-save
+    ```
+3. To see version actually installed see `node_modules`
+
+### Publish and use release versions
+
+Libraries:
+
+1. Use these commands to publish releases and tag as *latest*:
+    ```
+    "scripts": {
+        "publish:release": "npm run version:release && npm publish",
+        "version:release": "npm version 1.0.0"
+    }
+    ``` 
+2. Always set version back to **snapshot** after publishing a release
+
+Application:
+
+1. To get the latest release version use npm install:
+    ```
+    npm install <package>
+    ```
+2. To see version actually installed see `node_modules`
+
+NOTE: it is recommended to use fixed version numbers
+
 ## Instructions
 
 ### Test version conflicts
