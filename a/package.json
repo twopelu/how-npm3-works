@@ -1,17 +1,22 @@
 {
-  "name": "how-npm3-works-lib-a",
-  "version": "1.0.0",
+  "name": "npm-test-lib-a",
+  "version": "1.1.2-snapshot.5",
   "description": "Library A with add() function",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc"
+    "build": "tsc && cpx \"package.json\" dist",
+    "publish:release": "npm run version:release && npm publish",
+    "version:release": "npm version 1.1.2",
+    "publish:snapshot": "npm run version:snapshot && npm publish --tag snapshot",
+    "version:snapshot": "npm version prerelease --preid snapshot"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
+    "cpx": "^1.5.0",
     "typescript": "^3.5.3"
   },
   "keywords": [

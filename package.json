@@ -13,7 +13,7 @@
     "dist"
   ],
   "devDependencies": {
-    "typescript": "^3.5.3"
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "npm3"
@@ -24,5 +24,8 @@
     "type": "git",
     "url": "git+https://github.com/twopelu/how-npm3-works.git"
   },
-  "homepage": "https://github.com/twopelu/how-npm3-works#readme"
+  "homepage": "https://github.com/twopelu/how-npm3-works#readme",
+  "dependencies": {
+    "npm-test-lib-a": "1.1.2 || >=1.1.2-snapshot"
+  }
 }
